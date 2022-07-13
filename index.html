@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+    <head><title>CSE</title>
+        <link rel="icon" href="logo.jpg" width="64px" height="64px">
+        <link rel="stylesheet" href="2.css">
+        <script>
+            function changes()
+            {
+                document.getElementById("images").style.visibility="hidden";
+                document.getElementById("name").style.visibility="visible";
+            }
+            function unchanges()
+            {
+                document.getElementById("images").style.visibility="visible";
+                document.getElementById("name").style.visibility="hidden";
+            }
+            function sri()
+            {
+                document.getElementById("new1").style.visibility="hidden";
+                document.getElementById("slidercontainer").style.visibility="hidden";
+                document.getElementById("notifications").style.visibility="hidden";
+                //document.getElementById("para").style.visibility="visible";
+            }
+            function sri1()
+            {
+                document.getElementById("new1").style.visibility="visible";
+                document.getElementById("slidercontainer").style.visibility="visible";
+                document.getElementById("notifications").style.visibility="visible";
+            }
+           
+        function validate()
+        {
+            var d=document.getElementById("idn").value;
+            var r=/^(n|N)18(0|1)\d{3}$/
+            if(r.test(d)==false)
+            {
+                alert("please enter valid idno");
+                return false;
+            }
+        }
+        function validate1()
+        {
+            var d=document.getElementById("idno").value;
+            var r=/^52\d{5}$/
+            if(r.test(d)==false)
+            {
+                alert("please enter valid idno");
+                return false;
+            }
+        }
+        function validate2()
+        {
+            var d=document.getElementById("idno").value;
+            var r=/^(n|N)18(0|1)\d{3}$/
+            if(r.test(d)==false)
+            {
+                alert("please enter valid idno");
+                return false;
+            }
+        }
+        function SystemTime()
+        {
+            var d=new Date();
+            var h=d.getHours();
+            var m=d.getMinutes();
+            var s=d.getSeconds();
+            var ses=" AM ";
+            if(h>12)
+            {
+	            h=h-12;
+	            ses=" PM ";
+            }
+            h=(h<10)?"0"+h:h;
+            m=(m<10)?"0"+m:m;
+            s=(s<10)?"0"+s:s;
+            var time=h+":"+m+":"+s+" "+ses;
+            document.getElementById("clock").innerText=time;
+        }
+        setInterval(SystemTime,1000);
+        function searchItem(e)
+        {
+            var text=e.target.value.toLowerCase();
+            var items=document.getElementsByClassName("lid");
+            Array.from(items).forEach((item)=>{
+            itemValue=item.firstChild.textContent;
+            if(itemValue.toLowerCase().indexOf(text)!=-1)
+            {
+                item.style.display="block";
+            }
+            else
+            {
+                item.style.display="none";
+            }
+            })
+
+        }
+        function validate3()
+		{
+			var j1=/[a-z,A-Z]*/
+			var j=document.getElementById("first").value;
+			function fname()
+			{
+				document.getElementById("fi").style.visibility="hidden";
+			}
+			if(j.length<4 || j1.test(j)==false)
+			{
+				document.getElementById("fi").style.visibility="visible";
+				setTimeout(fname,3000);
+				return false;
+			}
+			var j2=document.getElementById("last").value;
+			function lname()
+			{
+				document.getElementById("li").style.visibility="hidden";
+			}
+			if(j2.length<4 || j1.test(j2)==false)
+			{
+				document.getElementById("li").style.visibility="visible";
+				setTimeout(lname,3000);
+				return false;
+			}
+			var j3=document.getElementById("mid").value;
+			function mname()
+			{
+				document.getElementById("li").style.visibility="hidden";
+			}
+			if(j1.test(j3)==false)
+			{
+				document.getElementById("mi").style.visibility="visible";
+				setTimeout(mname,3000);
+				return false;
+			}
+			document.getElementById("full").value=j+j2;
+			var m1=document.getElementById("i").checked;
+			var m2=document.getElementById("u").checked;
+			var ip=/^[6-9]\d{9}$/;
+			var up=/\d{3}-\d{3}-\d{4}/;
+			var p=document.getElementById("p").value;
+			function pno()
+			{
+				document.getElementById("pn").style.visibility="hidden";
+			}
+			if(m1)
+			{
+				if(ip.test(p)==false)
+				{
+					document.getElementById("pn").style.visibility="visible";
+					setTimeout(pno,3000);
+				return false;
+				}
+			}
+			else if(m2)
+			{
+
+				if(up.test(p)==false)
+				{
+					document.getElementById("pn").style.visibility="visible";
+					setTimeout(pno,3000);
+					return false;
+				}
+			}
+			var s=document.getElementById("pass").value;
+			function password()
+			{
+				document.getElementById("pa").style.visibility="hidden";
+			}
+			if(s.length<6)
+			{
+				document.getElementById("pa").style.visibility="visible";
+				setTimeout(password,3000)
+					return false;
+			}
+			var s=document.getElementById("te").value;
+			var s1="";
+			for(let i of s)
+			{
+    			if(isNaN(i))
+    			{
+        			s1=s1+i;
+    			}
+			}
+			document.getElementById("te").value=s1;
+            function hobbies()
+			{
+				document.getElementById("pp").style.visibility="hidden";
+			}
+			var pp=hb();
+			if(pp<2)
+			{
+				document.getElementById("pp").style.visibility="visible";
+                setTimeout(hobbies,3000);
+					return false;
+			}
+			var ag=document.getElementById("ag").checked;
+			if(!ag)
+			{
+				alert("please accept terms and conditions");
+				return false;
+			}
+			var kk=/^[a-z,A-Z,0-9][0-9,A-Z,a-z,-,.]*@[a-z]{3,6}\.[a-z]{2,3}(\.)?([a-z])?([a-z])?$/
+			var em=document.getElementById("em").value;
+			function email()
+			{
+				document.getElementById("ema").style.visibility="hidden";
+			}
+			if(kk.test(em)==false)
+			{
+				document.getElementById("ema").style.visibility="visible";
+				setTimeout(email,3000);
+				return false;
+			}
+			var bf=BornDay();
+			function bd()
+			{
+				document.getElementById("db1").style.visibility="hidden";
+			}
+			if(bf==false)
+			{
+				document.getElementById("db1").style.visibility="visible";
+				setTimeout(bd,3000);
+				return false;
+			}
+		}
+        function hb()
+		{
+			var a=document.getElementById("h1").checked;
+			var b=document.getElementById("h2").checked;
+			var c=document.getElementById("h3").checked;
+			var d=document.getElementById("h4").checked;
+			var e=[a,b,c,d];
+			var count=0;
+			for(let i=0;i<e.length;i++)
+			{
+				if(e[i]==true)
+				{
+					count=count+1;
+				}
+			}
+			return count;
+		}
+		function change()
+		{
+			document.getElementById("ppu").src="peye.jpg";
+			document.getElementById("pass").type="text";
+		}
+		function unchange()
+		{
+			document.getElementById("ppu").src="peye1.jpg";
+			document.getElementById("pass").type="password";
+		}
+		function reset()
+		{
+			alert("do you want reset");
+		}
+		function BornDay()
+		{
+			var dat=document.getElementById("db").value;
+			var dob=/^(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec) ([0-2][0-9]|[3](0|1)) \d{4}$/;
+			var d=new Date();
+			if(dob.test(dat)==false)
+			{
+				
+				return false;
+			}
+			var db=new Date(dat);
+			if(d<db)
+			{
+				alert("you are not born");
+			}
+			else
+			{
+				alert("your age is: "+(d.getYear()-db.getYear()));
+			}
+		}
+        </script>
+        <style type="text/css">  
+            body {  
+                margin: 0;  
+                background: #e6e6e6;  
+            }  
+            .showSlide {  
+                display: none  
+            }  
+                .showSlide img {  
+                    width: 100%;  
+                }  
+            #slidercontainer{  
+                max-width: 1000px;  
+                position:absolute;  
+                top:180px;
+                left:410px;
+                width:600px;
+                height:400px;
+                margin: auto;  
+                border-radius:10px;
+                border:4px solid black;
+                /*visibility: hidden;*/
+            }  
+            .left, .right {  
+                cursor: pointer;  
+                position: absolute;  
+                top: 50%;  
+                width: auto;  
+                padding: 16px;  
+                margin-top: -22px;  
+                color: white;  
+                font-weight: bold;  
+                font-size: 18px;  
+                transition: 0.6s ease;  
+                border-radius: 0 3px 3px 0;  
+            }  
+            .right {  
+                right: 0;  
+                border-radius: 3px 0 0 3px;  
+            }  
+                .left:hover, .right:hover {  
+                    background-color: rgba(115, 115, 115, 0.8);  
+                }  
+            .content {  
+                color: #eff5d4;  
+                font-size: 30px;  
+                padding: 8px 12px;  
+                position: absolute;  
+                top: 10px;  
+                width: 100%;  
+                text-align: center;  
+            }  
+            .active {  
+                background-color: #717171;  
+            }  
+            /* Fading animation */  
+            .fade {  
+                -webkit-animation-name: fade;  
+                -webkit-animation-duration: 1.5s;  
+                animation-name: fade;  
+                animation-duration: 1.5s;  
+            }  
+            @-webkit-keyframes fade {  
+                from {  
+                    opacity: .4  
+                }  
+                to {  
+                    opacity: 1  
+                }  
+            }  
+      
+            @keyframes fade {  
+                from {  
+                    opacity: .4  
+                }  
+                to {  
+                    opacity: 1  
+                }  
+            } 
+            #name{
+                font-size: 15px;
+                position:absolute;
+                top:30px;
+                left:20px;
+                visibility: hidden;
+            } 
+        </style>  
+    </head>
+    <body>
+        <div class="main div">
+            <div class="div1"><img src="logo.jpg" width="100px" height="100px" id="images">
+                <b id="name" style="text-align:center; visibility=hidden;">PadmaPriya</b>
+            </div>
+            <div class="div2"><h1><i><b><u>WEB PAGE</u></b></i></h1></div>
+            <div id="div3">
+                
+              <!--<img src="menu.png" height="50px" width="50px" id="img1">-->
+                <ul class="ul2">
+                    <li>
+                        <a href="#"><img src="menu.png" height="50px" width="95px" id="img1">￬</a><ul class="hidden">
+                    <!--<li><a href="2.html" target="_self"><img src="Home.jpg" height="50px" width="30px">￬</a></li>-->    
+                    <li><a href="index.html" target="_self">HOME</a></li>
+                    <li><a href="">BRANCH</a></li>
+                    <li><a href="">EXAMS￬</a>
+                        <ul class="hidden">
+                            <li>
+                            <div class="forms">
+                                <form action="\s.php" method="post" onsubmit="return validate3();">
+                                    <table><tr><td>FirstName:</td><td><input type="text" id="first"><label style="color:red;border:2px solid red; visibility:hidden;" id="fi">Invalid firsname</label></td></tr>
+                                        <tr><td>LastName:</td><td><input type="text" id="last"><label style="color:red;border:2px solid red; visibility:hidden;" id="li">Invalid last name</label></td></tr>
+                                        <tr><td>MiddleName:</td><td><input type="text" id="mid"><label style="color:red;border:2px solid red; visibility:hidden;" id="mi">Invalid  middle name</label></td></tr>
+                                        <tr><td>FullName:</td><td><input type="text" id="full"></td></tr>
+                                        <tr><td>Nation:</td><td>India:<input type="radio" name="j" id="i" checked>USA:<input type="radio" name="j" id="u" checked></td></tr>
+                                        <tr><td>Phone Number:</td><td><input type="text" name="" id="p"><label style="color:red;border:2px solid red; visibility:hidden;" id="pn">Invalid mobile number</label></td></tr>
+                                        <tr><td>password:</td><td><input type="password" name="" id="pass" onmouseover="change();" onmouseout="unchange();"><img src="eye.png" width="20px" height="15px" id="ppu"><label style="color:red;border:2px solid red; visibility:hidden;" id="pa">Invalid password</label></td></tr>
+                                        <tr><td>Hobbies:</td><td><input type="checkbox" id="h1">Playing Games<input type="checkbox" id="h2">
+                                                Listening Songs<input type="checkbox" id="h3">Watching Movies<input type="checkbox" id="h4">Games<label style="color:red;border:2px solid red; visibility:hidden;" id="pp">Invalid data</label></td></tr>
+                                        <tr><td>Address</td><td><textarea rows="10" cols="10" id="te"></textarea></td></tr>
+                                        <tr><td>Date of Birth:</td><td><input type="text" id="db"><label style="color:red;border:2px solid red; visibility:hidden;" id="db1">Invalid date</label></td></tr>
+                                        <tr><td>Email</td><td><input type="email" name="" id="em"><label style="color:red;border:2px solid red; visibility:hidden;"id="ema">Invalid email</label></td></tr>
+                                        <tr><td>Reset</td><td><input type="reset" name="" id="re"></td></tr>
+                                        <tr><td>Agree</td><td><input type="checkbox"  id="ag"></td></tr>
+                                        <tr><td></td><td><input type="submit" value="register"></td></tr>
+                                    </table>
+                                </form>
+                                </div>
+                                </li>
+                                </ul>
+                    </li>
+                    <!--<li><a href="2.html" target="_self">HOME</a></li>-->
+                    <li><a href=""><img src="contact.png" height="20px" width="20px">￬</a>
+                        <ul class="hidden">
+                            <li>
+                                
+                                <p>Mobile No:6302081036</p>
+                            </li>
+        
+                            </li>
+                            <li><a href="#">google map ￬</a>
+                                <ul class="hidden">
+                                    <li>
+                                        <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7692.603456836052!2d79.85225917242708!3d15.414257900095327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4b1bb374195705%3A0xc95356800ffb56ec!2sKondapi%2C%20Andhra%20Pradesh%20523270!5e0!3m2!1sen!2sin!4v1657387531602!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+                                </li> 
+                                </ul>
+                    </li>
+                    </li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div id="hi">
+        <ul id="menu">
+            <li><a href="index.html" target="_self">HOME</a></li>
+            <!--<li><a href="2.html" target="_self"><img src="home.jpg" height="50px" width="30px">￬</a></li>-->
+            <li>
+                <a href="#">EXAMS ￬</a>
+                <ul class="hidden">
+                    <li>
+                <li>
+                <div class="forms">
+                <form action="\s.php" method="post" onsubmit="return validate3();">
+                    <table><tr><td>FirstName:</td><td><input type="text" id="first"><label style="color:red;border:2px solid red; visibility:hidden;" id="fi">Invalid firsname</label></td></tr>
+                        <tr><td>LastName:</td><td><input type="text" id="last"><label style="color:red;border:2px solid red; visibility:hidden;" id="li">Invalid last name</label></td></tr>
+                        <tr><td>MiddleName:</td><td><input type="text" id="mid"><label style="color:red;border:2px solid red; visibility:hidden;" id="mi">Invalid  middle name</label></td></tr>
+                        <tr><td>FullName:</td><td><input type="text" id="full"></td></tr>
+                        <tr><td>Nation:</td><td>India:<input type="radio" name="j" id="i" checked>USA:<input type="radio" name="j" id="u" checked></td></tr>
+                        <tr><td>Phone Number:</td><td><input type="text" name="" id="p"><label style="color:red;border:2px solid red; visibility:hidden;" id="pn">Invalid mobile number</label></td></tr>
+                        <tr><td>password:</td><td><input type="password" name="" id="pass" onmouseover="change();" onmouseout="unchange();"><img src="eye.png" width="20px" height="15px" id="ppu"><label style="color:red;border:2px solid red; visibility:hidden;" id="pa">Invalid password</label></td></tr>
+                        <tr><td>Hobbies:</td><td><input type="checkbox" id="h1">Playing Games<input type="checkbox" id="h2">
+                                Listening Songs<input type="checkbox" id="h3">Watching movies<input type="checkbox" id="h4">Games<label style="color:red;border:2px solid red; visibility:hidden;" id="pp">Invalid data</label></td></tr>
+                        <tr><td>Address</td><td><textarea rows="10" cols="10" id="te"></textarea></td></tr>
+                        <tr><td>Date of Birth:</td><td><input type="text" id="db"><label style="color:red;border:2px solid red; visibility:hidden;" id="db1">invalid date</label></td></tr>
+                        <tr><td>Email</td><td><input type="email" name="" id="em"><label style="color:red;border:2px solid red; visibility:hidden;"id="ema">invalid email</label></td></tr>
+                         <!--<tr><td>passPhoto:</td><td><input type="file" id="file"  multipleaccept="image/png"></td></tr>-->
+                        <tr><td>Reset</td><td><input type="reset" name="" id="re"></td></tr>
+                        <tr><td>Agree</td><td><input type="checkbox"  id="ag"></td></tr>
+                        <tr><td></td><td><input type="submit" value="register"></td></tr>
+                    </table>
+                </form>
+                </div>
+                </li>
+            </ul>
+               </li>
+               <li>
+                <a href="#">BRANCHES ￬</a>
+                <ul class="hidden">
+                    <li><a href="#">ECE</a></li>
+                    <li><a href="#">MECH</a></li>
+                    <li>
+                    <a href="#">CSE ￬</a>
+                <ul class="hidden">
+                    <li><a href="#">FACULTY ￬</a>
+                        <ul class="hidden">
+                            <li>
+                                <div class="form2">
+                                <center>
+                        <form action="\s.php" method="post" onsubmit="return validate1();">
+                            <table>
+                            <tr><td>IDNO:</td><td><input type="text" placeholder="Enter your id no" id="idno"></td></tr>
+                           <tr><td>Pswd:</td><td><input type="password" required></td></tr>
+                            <tr><td></td><td><input type="submit" value="login"></td></tr>
+                        </table>
+                        </form>
+                    </center>
+                    </div>
+                    </li>
+                    </ul>
+                    </li>
+                    <li><a href="#">STUDENT ￬</a>
+                        <ul class="hidden">
+                            <li>
+                        <div class="form2">
+                            <center>
+                    <form action="\s.php" method="post" onsubmit="return validate2();">
+                        <table>
+                        <tr><td>IDNO:</td><td><input type="text" placeholder="Enter your id no" id="idno1"></td></tr>
+                       <tr><td>Pswd:</td><td><input type="password" required></td></tr>
+                        <tr><td></td><td><input type="submit" value="login"></td></tr>
+                    </table>
+                    </form>
+                </center>
+                </div>
+                        </li>
+                        </ul>
+                    </li>
+                </ul>
+                </li>
+                </ul>
+            </li>
+            <li><a href="#" target="_self"><img src="contact.png" height="50px" width="50px"> ￬</a>
+                <ul class="hidden">
+                    <li>
+                        
+                        <p>Mobile No:6302081036</p>
+                    </li>
+
+                    </li>
+                    <li><a href="#">google map ￬</a>
+                        <ul class="hidden">
+                            <li>
+                                <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60607.43330441337!2d83.85546593962093!3d18.303227849230698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3c150ef1737321%3A0xa45cf11898953b7!2sSrikakulam%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1657650621594!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+                        </li> 
+                        </ul>
+            </li>
+        </ul>
+    </div>
+    <div id="new1">
+        <div id="clock" onload="SystemTime();"></div>
+            <big>Search Countries:</big><input type="text" name="" id="filter">
+            <div  class="fi">
+                <ol type="1" class="old">
+                    <li class="lid">Australia</li>
+                    <li class="lid">Afghanistan</li>
+                    <li class="lid">Belgium</li>
+                    <li class="lid">Bangladesh</li>
+                    <li class="lid">Colombia</li>
+                    <li class="lid">China</li>
+                    <li class="lid">Denmark</li>
+                    <li class="lid">Dominican Republic</li>
+                    <li class="lid">Egypt</li>
+                    <li class="lid">Finland</li>
+                    <li class="lid">France</li>
+                    <li class="lid">Germany</li>
+                    <li class="lid">Hungary</li>
+                    <li class="lid">India</li>
+                    <li class="lid">Indonesia</li>
+                    <li class="lid">Japan</li>
+                    <li class="lid">Kenya</li>
+                    <li class="lid">Kuwait</li>
+                    <li class="lid">Laos</li>
+                    <li class="lid">Liberia</li>
+                    <li class="lid">Libya</li>
+                    <li class="lid">Malaysia</li>
+                    <li class="lid">Maldives</li>
+                    <li class="lid">Mongolia</li>
+                    <li class="lid">Nepal</li>
+                    <li class="lid">New zealand</li>
+                    <li class="lid">Nigeria</li>
+                    <li class="lid">Pakistan</li>
+                    <li class="lid">poland</li>
+                    <li class="lid">Russia</li>
+                    <li class="lid">saudi Arabia</li>
+                    <li class="lid">singapore</li>
+                    <li class="lid">Santhanuthalapadu</li>
+                    <li class="lid">south Africa</li>
+                    <li class="lid">Turkey</li>
+                    <li class="lid">United kingdom</li>
+                    <li class="lid">Venezuela</li>
+                    <li class="lid">vietnam</li>
+                    <li class="lid">Zambia</li>
+                    <li class="lid">Zimbabwe</li>
+                </ol>
+            </div>
+    </div> 
+    <div id="slidercontainer">  
+        <div class="showSlide fade">  
+            <img src="1.jpg"  height="400px" width="600px"/>  
+            <div class="content" style="color:gold">SLIDE-1</div>  
+        </div>  
+        <div class="showSlide fade">  
+            <img src="2.jpg"  height="400px"  width="600px" />  
+            <div class="content">SLIDE-2</div>  
+        </div>  
+  
+        <div class="showSlide fade">  
+            <img src="3.jpg"   height="400px"  width="600px" />  
+            <div class="content">SLIDE-3</div>  
+        </div>  
+        <div class="showSlide fade">  
+            <img src="4.jpg"   height="400px"  width="600px"/>  
+            <div class="content">SLIDE-4</div>  
+        </div>  
+        <!-- Navigation arrows -->  
+        <a class="left" onclick="nextSlide(-1)">❮</a>  
+        <a class="right" onclick="nextSlide(1)">❯</a>  
+    </div> 
+    <div id="notifications">
+        <h1 style="font-size:20px; color:green; background-color:hotpink;">Notifications</h1>
+        <marquee width="100%" height="20%" direction="up" onmouseover="stop();" onmouseout="start();"><p class="np">On your Android phone or tablet, open the Gmail app.</p></marquee>
+        <marquee width="100%" height="20%" direction="up"  onmouseover="stop();" onmouseout="start();"><p class="np">In the top left, tap Menu Menu.</p></marquee>
+        <marquee width="100%" height="20%" direction="up"  onmouseover="stop();" onmouseout="start();"><p class="np">Tap Settings.</p></marquee>
+        <marquee width="100%" height="20%" direction="up"  onmouseover="stop();" onmouseout="start();"><p class="np">Select your account.</p></marquee>
+            <marquee width="100%" height="20%" direction="up"  onmouseover="stop();" onmouseout="start();"><p class="np">Tap Inbox notifications and select your notification settings.</p></marquee>
+            <marquee width="100%" height="20%" direction="up"  onmouseover="stop();" onmouseout="start();"><p class="np">To change notification settings for certain labels in your inbox: Tap Manage labels. tap a label, such as Important.</p></marquee>
+            <marquee width="100%" height="20%" direction="up"  onmouseover="stop();" onmouseout="start();"><p class="np">scroll to Notifications.</p></marquee>
+    </div> 
+    <footer class="main-footer">
+        <p><small>Copy Rights &copy;PadmaPriya CSE</small></p>
+        <!-- hitwebcounter Code START -->
+                                           
+        </footer> 
+        <div class="web">
+            <!-- hitwebcounter Code START -->
+<a href="https://www.hitwebcounter.com" target="_blank">
+    <img src="https://hitwebcounter.com/counter/counter.php?page=8012848&style=0025&nbdigits=6&type=page&initCount=1001" title="Free Counter" Alt="web counter"   border="0" /></a>   
+        </div>  
+        <script>
+            var d=document.getElementById("images");
+            d.addEventListener('mouseover',changes);
+            d.addEventListener('mouseout',unchanges);
+            var filter=document.getElementById("filter");
+            filter.addEventListener('keyup',searchItem,false);
+            var d1=document.getElementById("hi");
+            d1.addEventListener('mouseover',sri);
+            d1.addEventListener('mouseout',sri1);
+            var d2=document.getElementById("div3");
+            d2.addEventListener('mouseover',sri);
+            d2.addEventListener('mouseout',sri1);
+            var d3=document.getElementById("re");
+	        d3.addEventListener('click',reset);
+            </script>
+            <script>
+            var slide_index = 1;  
+            displaySlides(slide_index);  
+      
+            function nextSlide(n) {  
+                displaySlides(slide_index += n);  
+            }  
+      
+            function currentSlide(n) {  
+                displaySlides(slide_index = n);  
+            }  
+      
+            function displaySlides(n) {  
+                var i;  
+                var slides = document.getElementsByClassName("showSlide");  
+                if (n > slides.length) { slide_index = 1 }  
+                if (n < 1) { slide_index = slides.length }  
+                for (i = 0; i < slides.length; i++) {  
+                    slides[i].style.display = "none";  
+                }  
+                slides[slide_index - 1].style.display = "block";  
+            }  
+        </script> 
+        </body>
+</html>
